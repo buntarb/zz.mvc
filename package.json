@@ -1,6 +1,6 @@
 {
 	"name": "zz.mvc",
-	"version": "2016094.0.0",
+	"version": "20160905.0.0",
 	"description": "Tests for imazzine-developer-lib MVC.",
 	"author": {
 		"name": "Artem Lytvynov",
@@ -14,6 +14,9 @@
 	},
 	"dependencies": {
 
-	    "imazzine-developer-kit": ""
+	    "imazzine-developer-kit": "",
+		"zz.views": "",
+		"zz.controllers": "",
+		"zz.models": ""
 	}
 }

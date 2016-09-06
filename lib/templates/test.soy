@@ -1,0 +1,27 @@
+{namespace zz.mvc.templates}
+
+/**
+ * @param uid
+ */
+{template .dataset}
+    <div
+        data-set={$uid}>
+    </div>
+{/template}
+
+/**
+ * @param directives
+ * @param fields
+ * @param datarow
+ * @param uid
+ */
+{template .datarow}
+    <div
+        data-row={$uid}>
+        <input
+            data-field="{$fields.test}"
+            data-event="{$directives.change}"
+            value={$datarow.test}
+        >
+    </div>
+{/template}
