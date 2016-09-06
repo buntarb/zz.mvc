@@ -18,6 +18,11 @@
 {template .datarow}
     <div
         data-row={$uid}>
+        <div
+            contenteditable="true"
+            data-field="{$fields.id}">
+            {$datarow.id}
+        </div>
         <input
             data-field="{$fields.test}"
             data-event="{$directives.change}"
