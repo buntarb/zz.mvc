@@ -30,3 +30,73 @@
         >
     </div>
 {/template}
+
+/**
+ * @param uid
+ */
+{template .appDataset}
+    <div
+        data-set={$uid}>
+    </div>
+{/template}
+
+/**
+ * @param fields
+ * @param datarow
+ * @param uid
+ */
+{template .appDatarow}
+    <div
+        data-row={$uid}>
+        <div
+            data-field="{$fields.title}">
+            {$datarow.title}
+        </div>
+        <div
+            data-field="{$fields.version}">
+            {$datarow.version}
+        </div>
+        <div
+            data-field="{$fields.authors}">
+            {$datarow.authors}
+        </div>
+        <div
+            data-field="{$fields.copyright}">
+            {$datarow.copyright}
+        </div>
+        <div
+            data-type="{$fields.layout}">
+        </div>
+    </div>
+{/template}
+
+/**
+ * @param uid
+ */
+{template .layoutDataset}
+    <div
+        data-set={$uid}>
+    </div>
+{/template}
+
+/**
+ * @param fields
+ * @param datarow
+ * @param uid
+ */
+{template .layoutDatarow}
+    <div
+        data-row={$uid}>
+        <input
+            data-field="{$fields.width}"
+            value={$datarow.width}
+        >
+        <input
+            data-field="{$fields.height}"
+            value={$datarow.height}
+        >
+        <div
+            data-type="{$fields.views}">
+        </div>
+    </div>
+{/template}
