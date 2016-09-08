@@ -36,6 +36,7 @@
  */
 {template .appDataset}
     <div
+    class="{css application}"
         data-set={$uid}>
     </div>
 {/template}
@@ -49,22 +50,27 @@
     <div
         data-row={$uid}>
         <div
+            class="{css application--data}"
             data-field="{$fields.title}">
             {$datarow.title}
         </div>
         <div
+            class="{css application--data}"
             data-field="{$fields.version}">
             {$datarow.version}
         </div>
         <div
+            class="{css application--data}"
             data-field="{$fields.authors}">
             {$datarow.authors}
         </div>
         <div
+            class="{css application--data}"
             data-field="{$fields.copyright}">
             {$datarow.copyright}
         </div>
         <div
+            class="{css layout}"
             data-type="{$fields.layout}">
         </div>
     </div>
@@ -96,7 +102,62 @@
             value={$datarow.height}
         >
         <div
+            class="{css view}"
             data-type="{$fields.views}">
+        </div>
+    </div>
+{/template}
+
+
+/**
+ * @param uid
+ */
+{template .viewDataset}
+    <div
+        data-set={$uid}>
+    </div>
+{/template}
+
+/**
+ * @param fields
+ * @param datarow
+ * @param uid
+ */
+{template .viewDatarow}
+    <div
+        class="{css mdl-card}"
+        data-row={$uid}>
+        <div
+            data-field="{$fields.title}">
+            {$datarow.title}
+        </div>
+        <div
+            class="{css widget}"
+            data-type="{$fields.widgets}">
+        </div>
+    </div>
+{/template}
+
+/**
+ * @param uid
+ */
+{template .widgetDataset}
+    <div
+        data-set={$uid}>
+    </div>
+{/template}
+
+/**
+ * @param fields
+ * @param datarow
+ * @param uid
+ */
+{template .widgetDatarow}
+    <div
+        data-row={$uid}>
+        <div
+            data-field="{$fields.title}">
+            {$datarow.title}
         </div>
     </div>
 {/template}

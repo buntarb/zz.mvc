@@ -18,6 +18,7 @@
 		"zz.environment": "",
 		"zz.views": "",
 		"zz.controllers": "",
-		"zz.models": ""
+		"zz.models": "",
+		"zz.ui.mdl" :""
 	}
 }

@@ -10,3 +10,26 @@
 @import "deps";
 
 // Module styles.
+
+div.application {
+
+  & div.application--data {
+
+    display: inline-block;
+    margin-right: 5px;
+  }
+  & div.layout {
+
+    margin: 10px auto 0;
+    padding: 10px;
+    background: #999;
+    & div.view {
+
+      margin: 10px auto 0;
+      & div.widget {
+
+        margin: 10px auto 0;
+      }
+    }
+  }
+}
