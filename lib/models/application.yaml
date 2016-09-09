@@ -1,6 +1,6 @@
 # This is created model class name (dataset). For datarow class
 # you should add Datarow suffix in the end.
-NAMESPACE: 'zz.mvc.models.AppDataset'
+NAMESPACE: 'zz.mvc.models.Application'
 
 # This is an array of required models (datasets) you need
 # to use as a field type.

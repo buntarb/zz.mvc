@@ -1,0 +1,12 @@
+{
+  "closureLibraryDir": ".\\node_modules\\imazzine-developer-kit\\node_modules\\google-closure-library\\closure\\goog\\",
+  "closureDepFiles": [ ".\\\\lib\\sources\\deps.js" ],
+  "excludes": [ ".\\lib\\sources\\deps.js" ],
+  "sources": [
+
+    ".\\lib\\sources\\",
+    ".\\node_modules\\imazzine-developer-kit\\bin\\templates\\soyutils.js",
+    ".\\node_modules\\imazzine-developer-kit\\bin\\templates\\soyutils_usegoog.js"
+  ],
+  "output": "doc"
+}
