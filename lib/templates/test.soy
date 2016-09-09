@@ -10,7 +10,7 @@
 {/template}
 
 /**
- * @param directives
+ * @param clientEvent
  * @param fields
  * @param datarow
  * @param uid
@@ -25,7 +25,7 @@
         </div>
         <input
             data-field="{$fields.test}"
-            data-event="{$directives.change}"
+            data-event="{$clientEvent.CHANGE}"
             value={$datarow.test}
         >
     </div>
@@ -86,6 +86,7 @@
 {/template}
 
 /**
+ * @param clientEvent
  * @param fields
  * @param datarow
  * @param uid
@@ -95,6 +96,7 @@
         data-row={$uid}>
         <input
             data-field="{$fields.width}"
+            data-event="{$clientEvent.CHANGE}"
             value={$datarow.width}
         >
         <input
@@ -103,6 +105,7 @@
         >
         <div
             class="{css view}"
+            data-event="{$clientEvent.ACTION}"
             data-type="{$fields.views}">
         </div>
     </div>
