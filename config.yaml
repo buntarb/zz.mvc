@@ -37,12 +37,6 @@ PATH:
   # Services compiling
   SVC: 'svc'
 
-# Default parameters
-DEFAULT:
-
-  # Locale
-  LOCALE: 'en'
-
 # Server settings
 SERVER:
 

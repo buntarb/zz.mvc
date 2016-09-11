@@ -19,6 +19,8 @@
 		"zz.views": "",
 		"zz.controllers": "",
 		"zz.models": "",
-		"zz.ui.mdl" :""
+		"zz.styles": "",
+		"zz.i18n": "",
+		"zz.ui": ""
 	}
 }

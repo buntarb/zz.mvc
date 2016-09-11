@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file original="SoyMsgBundle" datatype="x-soy-msg-bundle" xml:space="preserve" source-language="en" target-language="en">
+    <body>
+      <trans-unit id="2720411723250272057" datatype="html">
+        <source>D3 Demo Widget</source>
+        <target/>
+        <note priority="1" from="description">D3 Demo Widget</note>
+        <note priority="1" from="meaning">D3 Demo Widget</note>
+      </trans-unit>
+      <trans-unit id="4076475238105099225" datatype="html">
+        <source>PIE Chart Widget</source>
+        <target/>
+        <note priority="1" from="description">PIE Chart Widget</note>
+        <note priority="1" from="meaning">PIE Chart Widget</note>
+      </trans-unit>
+      <trans-unit id="6551143235595220313" datatype="html">
+        <source>Scatterplot Matrix Widget</source>
+        <target/>
+        <note priority="1" from="description">Scatterplot Matrix Widget</note>
+        <note priority="1" from="meaning">Scatterplot Matrix Widget</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

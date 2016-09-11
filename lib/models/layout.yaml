@@ -1,42 +1,30 @@
 # This is created model class name (dataset). For datarow class
 # you should add Datarow suffix in the end.
-NAMESPACE: 'zz.mvc.models.Application'
+NAMESPACE: 'zz.mvc.models.Layout'
 
 # This is an array of required models (datasets) you need
 # to use as a field type.
 REQUIRE:
 
-  - zz.mvc.models.Layout
+  - zz.mvc.models.View
 
 # This is the list of models fields.
 FIELDS:
 
-  title:
+  width:
 
     index: 0
     type: zz.models.enums.FieldType.STRING
     required: false
 
-  version:
+  height:
 
     index: 1
     type: zz.models.enums.FieldType.STRING
     required: false
 
-  authors:
+  views:
 
     index: 2
-    type: zz.models.enums.FieldType.STRING
-    required: false
-
-  copyright:
-
-    index: 3
-    type: zz.models.enums.FieldType.STRING
-    required: false
-
-  layout:
-
-    index: 4
-    type: zz.mvc.models.Layout
+    type: zz.mvc.models.View
     required: false

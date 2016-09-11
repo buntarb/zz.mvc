@@ -1,0 +1,109 @@
+{namespace zz.mvc.templates}
+
+/**
+ * @param uid
+ */
+{template .appDataset}
+    <div
+        class="{css application}"
+        data-set="{$uid}">
+    </div>
+{/template}
+
+/**
+ * @param fields
+ * @param uid
+ */
+{template .appDatarow}
+    <div
+        data-row="{$uid}">
+        <div
+            class="{css layout}"
+            data-type="{$fields.layout}">
+        </div>
+    </div>
+{/template}
+
+/**
+ * @param uid
+ */
+{template .layoutDataset}
+    <div
+        data-set="{$uid}">
+    </div>
+{/template}
+
+/**
+ * @param fields
+ * @param uid
+ */
+{template .layoutDatarow}
+    <div
+        data-row="{$uid}">
+        <h4>
+            {msg desc="Application Title" meaning="Application Title"}
+                Application Title
+            {/msg}
+        </h4>
+        <div
+            class="{css view}"
+            data-type="{$fields.views}">
+        </div>
+    </div>
+{/template}
+
+/**
+ * @param uid
+ */
+{template .viewDataset}
+    <div
+        data-set="{$uid}">
+    </div>
+{/template}
+
+/**
+ * @param fields
+ * @param uid
+ * @param datarow
+ */
+{template .viewDatarow}
+    <div
+        data-row="{$uid}">
+        <h4>
+            {msg desc="Dashboard Title:" meaning="Dashboard Title:"}
+                Dashboard Title:
+            {/msg}
+            {' ' + $datarow.title}
+        </h4>
+        <div
+            class="{css widget}"
+            data-type="{$fields.widgets}">
+        </div>
+    </div>
+{/template}
+
+/**
+ * @param uid
+ */
+{template .widgetDataset}
+    <div
+        class="{css mdl-grid}"
+        data-set="{$uid}">
+    </div>
+{/template}
+
+/**
+ * @param fields
+ * @param uid
+ * @param datarow
+ */
+{template .widgetDatarow}
+    <div
+        data-row="{$uid}"
+        class="{css mdl-cell} {css mdl-cell--4-col} {css mdl-card} {css mdl-shadow--2dp} {if $datarow.type != 'scatter'}{css highlighted-element}{/if}">
+        <h4>{$datarow.title}</h4>
+        <div
+            data-type="{$fields.data}">
+        </div>
+    </div>
+{/template}

@@ -6,30 +6,161 @@
 
 // Importing styles from related modules.
 // Please, don't delete this import.
-
-@import "deps";
+@import "../../../node_modules/zz.styles/lib/stylesheets/scss/export";
+@import "d3";
 
 // Module styles.
+div {
 
-div.application {
+  box-sizing: border-box;
+}
+div#root{
 
-  & div.application--data {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  float: left;
+  & > div.application {
 
-    display: inline-block;
-    margin-right: 5px;
-  }
-  & div.layout {
+    display: block;
+    position: absolute;
+    float: left;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    & > div {
 
-    margin: 10px auto 0;
-    padding: 10px;
-    background: #999;
-    & div.view {
+      display: block;
+      position: relative;
+      float: left;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
 
-      margin: 10px auto 0;
-      & div.widget {
+      // Layout field in application datarow
+      & > div.layout {
 
-        margin: 10px auto 0;
+        display: block;
+        position: relative;
+        float: left;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+
+        // Layout dataset
+        & > div {
+
+          display: block;
+          position: relative;
+          float: left;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          overflow: hidden;
+
+          // Layout datarow
+          & > div {
+
+            display: block;
+            position: relative;
+            float: left;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            background: #eeeeee;
+
+            & > h4 {
+
+              width: 100%;
+              height: 80px;
+              line-height: 80px;
+              margin: 0;
+              padding: 0 0 0 24px;
+            }
+
+            // View field in layout datarow
+            & > div.view {
+
+              display: block;
+              position: absolute;
+              float: left;
+              width: 100%;
+              top: 80px;
+              left: 0;
+              bottom: 0;
+              overflow-x: hidden;
+              overflow-y: visible;
+              background: #fafafa;
+
+              // View dataset
+              & > div {
+
+                // View datarow
+                & > div {
+
+                  // Title
+                  & > h4 {
+
+                    display: inline-block;
+                    position: relative;
+                    margin-left: 24px;
+                    color: rgba(0,0,0,.54);
+                  }
+
+                  // Widget field in view datarow
+                  & > div.widget {
+
+                    // Widget dataset
+                    & > div {
+
+                      // Widget datarow
+                      & > div.mdl-card.mdl-shadow--2dp {
+
+                        min-width: 350px;
+                        margin: 0 auto 24px;
+                        padding: 12px;
+
+                        & > h4{
+
+                          margin: 12px 0 12px 12px;
+                          color: #2179b4;
+                        }
+                        & > div {
+
+                          & > svg {
+
+                            display: block;
+                            margin: auto;
+                            padding: 0;
+                            box-sizing: border-box;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
+}
+div.mdl-card {
+
+  margin: auto;
 }
