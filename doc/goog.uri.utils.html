@@ -1,0 +1,205 @@
+<!DOCTYPE html><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"><meta http-equiv="Content-Language" content="en"><meta http-equiv="X-UA-Compatible" content="IE=edge"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><title>goog.uri.utils</title><link href="dossier.css" rel="stylesheet" type="text/css"><header><button class="dossier-menu"><i class="material-icons">menu</i></button><form><input type="search" placeholder="Search" tabindex="1"><i class="material-icons">search</i></form></header><div class="content"><main><article><section class="intro"><div class="codelink"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l47">View Source</a></div><h1 class="title"><div>namespace goog.uri.utils</div></h1><p>No description available.</p></section><section class="static-functions"><h2>Functions</h2><section class="property" id="appendParam"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l798" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>appendParam(<wbr>uri,<wbr> key,<wbr> opt_value)</div></h3><p>Appends a single URI parameter.</p>
+<p>Repeated calls to this can exhibit quadratic behavior in IE6 due to the
+way string append works, though it should be limited given the 2kb limit.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The original URI, which may already have query data.</p>
+<dt class="named">key<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The key, which must already be URI encoded.</p>
+<dt class="named">opt_value<code>*=</code><dd><p>The value, which will be stringized and encoded
+(assumed not already to be encoded).  If omitted, undefined, or null, the
+key will be added as a valueless parameter.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI with the query parameter added.</p>
+</dl></dd></dl></section><section class="property" id="appendParams"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l762" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>appendParams(<wbr>uri,<wbr> var_args)</div></h3><p>Appends URI parameters to an existing URI.</p>
+<p>The variable arguments may contain alternating keys and values.  Keys are
+assumed to be already URI encoded.  The values should not be URI-encoded,
+and will instead be encoded by this function.</p>
+ <pre>
+ appendParams(&#39;http://www.foo.com?existing&#61;true&#39;,
+     &#39;key1&#39;, &#39;value1&#39;,
+     &#39;key2&#39;, &#39;value?willBeEncoded&#39;,
+     &#39;key3&#39;, [&#39;valueA&#39;, &#39;valueB&#39;, &#39;valueC&#39;],
+     &#39;key4&#39;, null);
+ result: &#39;http://www.foo.com?existing&#61;true&amp;&#39; &#43;
+     &#39;key1&#61;value1&amp;&#39; &#43;
+     &#39;key2&#61;value%3FwillBeEncoded&amp;&#39; &#43;
+     &#39;key3&#61;valueA&amp;key3&#61;valueB&amp;key3&#61;valueC&#39;
+ </pre>
+<p>A single call to this function will not exhibit quadratic behavior in IE,
+whereas multiple repeated calls may, although the effect is limited by
+fact that URL&#39;s generally can&#39;t exceed 2kb.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The original URI, which may already have query data.</p>
+<dt class="named">var_args<code>...*</code><dd><p>An array or argument list conforming to goog.uri.utils.QueryArray.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI with all query parameters added.</p>
+</dl></dd></dl></section><section class="property" id="appendParamsFromMap"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l779" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>appendParamsFromMap(<wbr>uri,<wbr> map)</div></h3><p>Appends query parameters from a map.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The original URI, which may already have query data.</p>
+<dt class="named">map<code>!<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&lt;?, *&gt;</code><dd><p>An object where keys are
+URI-encoded parameter keys, and the values are arbitrary types or arrays.
+Keys with a null value are dropped.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The new parameters.</p>
+</dl></dd></dl></section><section class="property" id="appendPath"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l1011" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>appendPath(<wbr>baseUri,<wbr> path)</div></h3><p>Generates a URI path using a given URI and a path with checks to
+prevent consecutive &#34;//&#34;. The baseUri passed in must not contain
+query or fragment identifiers. The path to append may not contain query or
+fragment identifiers.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">baseUri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>URI to use as the base.</p>
+<dt class="named">path<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>Path to append.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>Updated URI.</p>
+</dl></dd></dl></section><section class="property" id="buildFromEncodedParts"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l87" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>buildFromEncodedParts(<wbr>opt_scheme,<wbr> opt_userInfo,<wbr> opt_domain,<wbr> opt_port,<wbr> opt_path,<wbr> opt_queryData,<wbr> opt_fragment)</div></h3><p>Builds a URI string from already-encoded parts.</p>
+<p>No encoding is performed.  Any component may be omitted as either null or
+undefined.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">opt_scheme<code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>=</code><dd><p>The scheme such as &#39;http&#39;.</p>
+<dt class="named">opt_userInfo<code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>=</code><dd><p>The user name before the &#39;&#64;&#39;.</p>
+<dt class="named">opt_domain<code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>=</code><dd><p>The domain such as &#39;www.google.com&#39;, already
+URI-encoded.</p>
+<dt class="named">opt_port<code>?(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>|<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)=</code><dd><p>The port number.</p>
+<dt class="named">opt_path<code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>=</code><dd><p>The path, already URI-encoded.  If it is not
+empty, it must begin with a slash.</p>
+<dt class="named">opt_queryData<code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>=</code><dd><p>The URI-encoded query data.</p>
+<dt class="named">opt_fragment<code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>=</code><dd><p>The URI-encoded fragment identifier.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The fully combined URI.</p>
+</dl></dd></dl></section><section class="property" id="buildQueryData"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l690" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>buildQueryData(<wbr>keysAndValues,<wbr> opt_startIndex)</div></h3><p>Builds a query data string from a sequence of alternating keys and values.
+Currently generates &#34;&amp;key&amp;&#34; for empty args.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">keysAndValues<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;*&gt;</code><dd><p>Alternating keys and
+values.  See the typedef.</p>
+<dt class="named">opt_startIndex<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>=</code><dd><p>A start offset into the arary, defaults to 0.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The encoded query string, in the form &#39;a&#61;1&amp;b&#61;2&#39;.</p>
+</dl></dd></dl></section><section class="property" id="buildQueryDataFromMap"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l727" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>buildQueryDataFromMap(<wbr>map)</div></h3><p>Builds a query data string from a map.
+Currently generates &#34;&amp;key&amp;&#34; for empty args.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">map<code>!<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, *&gt;</code><dd><p>An object where keys
+are URI-encoded parameter keys, and the values are arbitrary types
+or arrays. Keys with a null value are dropped.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The encoded query string, in the form &#39;a&#61;1&amp;b&#61;2&#39;.</p>
+</dl></dd></dl></section><section class="property" id="getDomain"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l341" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getDomain(<wbr>uri)</div></h3><dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI to examine.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The decoded domain, or null if none.</p>
+</dl></dd></dl></section><section class="property" id="getDomainEncoded"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l331" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getDomainEncoded(<wbr>uri)</div></h3><dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI to examine.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The domain name still encoded, or null if none.</p>
+</dl></dd></dl></section><section class="property" id="getEffectiveScheme"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l295" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getEffectiveScheme(<wbr>uri)</div></h3><p>Gets the effective scheme for the URL.  If the URL is relative then the
+scheme is derived from the page&#39;s location.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI to examine.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The protocol or scheme, always lower case.</p>
+</dl></dd></dl></section><section class="property" id="getFragment"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l424" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getFragment(<wbr>uri)</div></h3><dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI to examine.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The decoded fragment identifier, or null if none.  Does
+not include the hash mark.</p>
+</dl></dd></dl></section><section class="property" id="getFragmentEncoded"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l401" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getFragmentEncoded(<wbr>uri)</div></h3><dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI to examine.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The fragment identifier, or null if none.  Does not
+include the hash mark itself.</p>
+</dl></dd></dl></section><section class="property" id="getHost"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l435" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getHost(<wbr>uri)</div></h3><p>Extracts everything up to the port of the URI.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI string.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>Everything up to and including the port.</p>
+</dl></dd></dl></section><section class="property" id="getParamValue"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l884" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getParamValue(<wbr>uri,<wbr> keyEncoded)</div></h3><p>Gets the first value of a query parameter.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI to process.  May contain a fragment.</p>
+<dt class="named">keyEncoded<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI-encoded key.  Case-sensitive.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The first value of the parameter (URI-decoded), or null
+if the parameter is not found.</p>
+</dl></dd></dl></section><section class="property" id="getParamValues"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l913" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getParamValues(<wbr>uri,<wbr> keyEncoded)</div></h3><p>Gets all values of a query parameter.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI to process.  May contain a fragment.</p>
+<dt class="named">keyEncoded<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI-encoded key.  Case-sensitive.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;</code><dd><p>All URI-decoded values with the given key.
+If the key is not found, this will have length 0, but never be null.</p>
+</dl></dd></dl></section><section class="property" id="getPath"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l379" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getPath(<wbr>uri)</div></h3><dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI to examine.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The decoded path, or null if none.  Includes the leading
+slash, if any.</p>
+</dl></dd></dl></section><section class="property" id="getPathAndAfter"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l451" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getPathAndAfter(<wbr>uri)</div></h3><p>Extracts the path of the URL and everything after.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI string.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI, starting at the path and including the query
+parameters and fragment identifier.</p>
+</dl></dd></dl></section><section class="property" id="getPathEncoded"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l368" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getPathEncoded(<wbr>uri)</div></h3><dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI to examine.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The path still encoded, or null if none. Includes the
+leading slash, if any.</p>
+</dl></dd></dl></section><section class="property" id="getPort"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l351" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getPort(<wbr>uri)</div></h3><dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI to examine.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code><dd><p>The port number, or null if none.</p>
+</dl></dd></dl></section><section class="property" id="getQueryData"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l390" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getQueryData(<wbr>uri)</div></h3><dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI to examine.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The query data still encoded, or null if none.  Does not
+include the question mark itself.</p>
+</dl></dd></dl></section><section class="property" id="getScheme"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l283" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getScheme(<wbr>uri)</div></h3><dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI to examine.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The protocol or scheme, or null if none.  Does not
+include trailing colons or slashes.</p>
+</dl></dd></dl></section><section class="property" id="getUserInfo"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l321" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getUserInfo(<wbr>uri)</div></h3><dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI to examine.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The decoded user info, or null if none.</p>
+</dl></dd></dl></section><section class="property" id="getUserInfoEncoded"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l311" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getUserInfoEncoded(<wbr>uri)</div></h3><dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI to examine.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The user name still encoded, or null if none.</p>
+</dl></dd></dl></section><section class="property" id="hasParam"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l871" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>hasParam(<wbr>uri,<wbr> keyEncoded)</div></h3><p>Determines if the URI contains a specific key.</p>
+<p>Performs no object instantiations.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI to process.  May contain a fragment
+identifier.</p>
+<dt class="named">keyEncoded<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI-encoded key.  Case-sensitive.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code><dd><p>Whether the key is present.</p>
+</dl></dd></dl></section><section class="property" id="haveSameDomain"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l482" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>haveSameDomain(<wbr>uri1,<wbr> uri2)</div></h3><p>Ensures that two URI&#39;s have the exact same domain, scheme, and port.</p>
+<p>Unlike the version in goog.Uri, this checks protocol, and therefore is
+suitable for checking against the browser&#39;s same-origin policy.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri1<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The first URI.</p>
+<dt class="named">uri2<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The second URI.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code><dd><p>Whether they have the same scheme, domain and port.</p>
+</dl></dd></dl></section><section class="property" id="makeUnique"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l1065" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>makeUnique(<wbr>uri)</div></h3><p>Sets the zx parameter of a URI to a random value.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>Any URI.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>That URI with the &#34;zx&#34; parameter added or replaced to
+contain a random string.</p>
+</dl></dd></dl></section><section class="property" id="parseQueryData"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l564" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>parseQueryData(<wbr>encodedQuery,<wbr> callback)</div></h3><p>Parses encoded query parameters and calls callback function for every
+parameter found in the string.</p>
+<p>Missing value of parameter (e.g. “…&amp;key&amp;…”) is treated as if the value was an
+empty string.  Keys may be empty strings (e.g. “…&amp;&#61;value&amp;…”) which also means
+that “…&amp;&#61;&amp;…” and “…&amp;&amp;…” will result in an empty key and value.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">encodedQuery<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>Encoded query string excluding question mark at
+the beginning.</p>
+<dt class="named">callback<code>function(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): ?</code><dd><p>Function called for every
+parameter found in query string.  The first argument (name) will not be
+urldecoded (so the function is consistent with buildQueryData), but the
+second will.  If the parameter has no value (i.e. “&#61;” was not present)
+the second argument (value) will be an empty string.</p>
+</dl></dd></dl></section><section class="property" id="removeFragment"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l465" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>removeFragment(<wbr>uri)</div></h3><p>Gets the URI with the fragment identifier removed.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI to examine.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>Everything preceding the hash mark.</p>
+</dl></dd></dl></section><section class="property" id="removeParam"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l954" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>removeParam(<wbr>uri,<wbr> keyEncoded)</div></h3><p>Removes all instances of a query parameter.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI to process.  Must not contain a fragment.</p>
+<dt class="named">keyEncoded<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI-encoded key.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI with all instances of the parameter removed.</p>
+</dl></dd></dl></section><section class="property" id="setFragmentEncoded"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l414" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>setFragmentEncoded(<wbr>uri,<wbr> fragment)</div></h3><dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI to examine.</p>
+<dt class="named">fragment<code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The encoded fragment identifier, or null if none.
+Does not include the hash mark itself.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI with the fragment set.</p>
+</dl></dd></dl></section><section class="property" id="setParam"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l995" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>setParam(<wbr>uri,<wbr> keyEncoded,<wbr> value)</div></h3><p>Replaces all existing definitions of a parameter with a single definition.</p>
+<p>Repeated calls to this can exhibit quadratic behavior due to the need to
+find existing instances and reconstruct the string, though it should be
+limited given the 2kb limit.  Consider using appendParams to append multiple
+parameters in bulk.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The original URI, which may already have query data.</p>
+<dt class="named">keyEncoded<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The key, which must already be URI encoded.</p>
+<dt class="named">value<code>*</code><dd><p>The value, which will be stringized and encoded (assumed
+not already to be encoded).</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI with the query parameter added.</p>
+</dl></dd></dl></section><section class="property" id="setPath"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l1032" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>setPath(<wbr>uri,<wbr> path)</div></h3><p>Replaces the path.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>URI to use as the base.</p>
+<dt class="named">path<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>New path.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>Updated URI.</p>
+</dl></dd></dl></section><section class="property" id="split"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l237" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>split(<wbr>uri)</div></h3><p>Splits a URI into its component parts.</p>
+<p>Each component can be accessed via the component indices; for example:</p>
+ <pre>
+ goog.uri.utils.split(someStr)[goog.uri.utils.CompontentIndex.QUERY_DATA];
+ </pre>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">uri<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The URI string to examine.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>|<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined">undefined</a>)&gt;</code><dd><p>Each component still URI-encoded.
+Each component that is present will contain the encoded value, whereas
+components that are not present will be undefined or empty, depending
+on the browser&#39;s regular expression implementation.  Never null, since
+arbitrary strings may still look like path names.</p>
+</dl></dd></dl></section></section><section class="types"><h2>Types</h2><section class="property"><dl><dt><a href="goog.uri.utils.CharCode_.html">CharCode_</a><dd><p>Character codes inlined to avoid object allocations due to charCode.</p>
+<dt><a href="goog.uri.utils.ComponentIndex.html">ComponentIndex</a><dd><p>The index of each URI component in the return value of goog.uri.utils.split.</p>
+<dt><a href="goog.uri.utils.StandardQueryParam.html">StandardQueryParam</a><dd><p>Standard supported query parameters.</p>
+</dl></section></section><section class="type-defs"><h2>Type Definitions</h2><section id="QueryArray" class="property"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l545" title="View source"><i class="material-icons">code</i></a></div><h3 class="name">QueryArray</h3><dl><dt class="spec">Type<dd><code>!<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;*&gt;</code></dl><p>An array representing a set of query parameters with alternating keys
+and values.</p>
+<p>Keys are assumed to be URI encoded already and live at even indices.  See
+goog.uri.utils.QueryValue for details on how parameter values are encoded.</p>
+<p>Example:</p>
+ <pre>
+ var data &#61; [
+   // Simple param: ?name&#61;BobBarker
+   &#39;name&#39;, &#39;BobBarker&#39;,
+   // Conditional param -- may be omitted entirely.
+   &#39;specialDietaryNeeds&#39;, hasDietaryNeeds() ? getDietaryNeeds() : null,
+   // Multi-valued param: &amp;house&#61;LosAngeles&amp;house&#61;NewYork&amp;house&#61;null
+   &#39;house&#39;, [&#39;LosAngeles&#39;, &#39;NewYork&#39;, null]
+ ];
+ </pre>
+</section><section id="QueryValue" class="property"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/uri/utils.js.src.html#l521" title="View source"><i class="material-icons">code</i></a></div><h3 class="name">QueryValue</h3><dl><dt class="spec">Type<dd><code>*</code></dl><p>Supported query parameter values by the parameter serializing utilities.</p>
+<p>If a value is null or undefined, the key-value pair is skipped, as an easy
+way to omit parameters conditionally.  Non-array parameters are converted
+to a string and URI encoded.  Array values are expanded into multiple
+&amp;key&#61;value pairs, with each element stringized and URI-encoded.</p>
+</section></section></article></main><footer><div><a href="https://github.com/jleyba/js-dossier">Generated by dossier</a></div></footer></div><nav class="dossier-nav"><section><a class="title" href="index.html" tabindex="2">Overview</a></section><section class="types"><div class="toggle"><div class="title"><span class="item" tabindex="2">Types</span><i class="material-icons">expand_more</i></div></div></section></nav><script src="types.js"></script><script src="dossier.js"></script>
