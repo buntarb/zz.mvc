@@ -1,0 +1,321 @@
+<!DOCTYPE html><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"><meta http-equiv="Content-Language" content="en"><meta http-equiv="X-UA-Compatible" content="IE=edge"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><title>XhrIo</title><link href="dossier.css" rel="stylesheet" type="text/css"><header><button class="dossier-menu"><i class="material-icons">menu</i></button><form><input type="search" placeholder="Search" tabindex="1"><i class="material-icons">search</i></form></header><div class="content"><main><article><section class="intro"><div class="parentlink"><b>Namespace:</b> <a href="goog.net.html">goog.net</a></div><div class="codelink"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l82">View Source</a></div><h1 class="title"><div>class XhrIo</div></h1><pre class="inheritance"><a href="goog.Disposable.html">goog.Disposable</a>
+  &#x2514; <a href="goog.events.EventTarget.html">goog.events.EventTarget</a>
+      &#x2514; goog.net.XhrIo</pre><dl><dt class="spec">All implemented interfaces<dd><code><a href="goog.disposable.IDisposable.html">goog.disposable.IDisposable</a></code><dd><code><a href="goog.events.Listenable.html">goog.events.Listenable</a></code></dl><p>Basic class for handling XMLHttpRequests.</p>
+<h3 class="name"><div>new XhrIo(<wbr>opt_xmlHttpFactory)</div></h3><dt class="spec">Parameters</dt><dd><dl><dt class="named">opt_xmlHttpFactory<code>?<a href="goog.net.XmlHttpFactory.html">goog.net.XmlHttpFactory</a>=</code><dd><p>Factory to use when
+creating XMLHttpRequest objects.</p>
+</dl></dd></section><section class="instance-methods"><h2>Instance Methods</h2><section class="property" id="abort"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l737" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>abort(<wbr>opt_failureCode)</div></h3><p>Abort the current XMLHttpRequest</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">opt_failureCode<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>=</code><dd><p>Optional error code to use -
+defaults to ABORT.</p>
+</dl></dd></dl></section><section class="property" id="addEventListener"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/events/eventtarget.js.src.html#l150" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div class="tags"><span class="deprecated"></span></div><div>addEventListener(<wbr>type,<wbr> handler,<wbr> opt_capture,<wbr> opt_handlerScope)</div></h3><p>Adds an event listener to the event target. The same handler can only be
+added once per the type. Even if you add the same handler multiple times
+using the same type then it will only be called once when the event is
+dispatched.</p>
+<dl><dt class="spec">Deprecated<dd><p>Use <code>#listen</code> instead, when possible. Otherwise, use
+<code>goog.events.listen</code> if you are passing Object
+(instead of Function) as handler.</p>
+<dt class="spec">Defined by</dt><dd><a href="goog.events.EventTarget.html#addEventListener">goog.events.EventTarget</a></dd><dt class="spec">Parameters</dt><dd><dl><dt class="named">type<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The type of the event to listen for.</p>
+<dt class="named">handler<code>?(function(?): ?|{handleEvent: function(?): ?})</code><dd><p>The function
+to handle the event. The handler can also be an object that implements
+the handleEvent method which takes the event object as argument.</p>
+<dt class="named">opt_capture<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>=</code><dd><p>In DOM-compliant browsers, this determines
+whether the listener is fired during the capture or bubble phase
+of the event.</p>
+<dt class="named">opt_handlerScope<code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>=</code><dd><p>Object in whose scope to call
+the listener.</p>
+</dl></dd></dl></section><section class="property" id="addOnDisposeCallback"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/disposable/disposable.js.src.html#l216" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div><code class="template-name">&lt;T&gt;</code> addOnDisposeCallback(<wbr>callback,<wbr> opt_scope)</div></h3><p>Invokes a callback function when this object is disposed. Callbacks are
+invoked in the order in which they were added. If a callback is added to
+an already disposed Disposable, it will be called immediately.</p>
+<dl><dt class="spec">Defined by</dt><dd><a href="goog.Disposable.html#addOnDisposeCallback">goog.Disposable</a></dd><dt class="spec">Parameters</dt><dd><dl><dt class="named">callback<code>function(this: T): ?</code><dd><p>The callback function.</p>
+<dt class="named">opt_scope<code>?T=</code><dd><p>An optional scope to call the callback in.</p>
+</dl></dd></dl></section><section class="property" id="createXhr"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l671" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div class="tags"><span class="protected"></span></div><div>createXhr()</div></h3><p>Creates a new XHR object.</p>
+<dl><dt class="spec">Returns</dt><dd><dl><dt><code>(<a href="goog.net.XhrLike.html">goog.net.XhrLike</a>|XMLHttpRequest)</code><dd><p>The newly created XHR object.</p>
+</dl></dd></dl></section><section class="property" id="dispatchEvent"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/events/eventtarget.js.src.html#l181" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>dispatchEvent(<wbr>e)</div></h3><p>Dispatches an event (or event like object) and calls all listeners
+listening for events of this type. The type of the event is decided by the
+type property on the event object.</p>
+<p>If any of the listeners returns false OR calls preventDefault then this
+function will return false.  If one of the capture listeners calls
+stopPropagation, then the bubble listeners won&#39;t fire.</p>
+<dl><dt class="spec">Defined by</dt><dd><a href="goog.events.EventTarget.html#dispatchEvent">goog.events.EventTarget</a></dd><dt class="spec">Specified by</dt><dd><a href="goog.events.Listenable.html#dispatchEvent">goog.events.Listenable</a></dd><dt class="spec">Parameters</dt><dd><dl><dt class="named">e<code>?(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>|<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code><dd><p>Event object.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code><dd><p>If anyone called preventDefault on the event object (or
+if any of the listeners returns false) this will also return false.</p>
+</dl></dd></dl></section><section class="property" id="dispose"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/disposable/disposable.js.src.html#l175" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>dispose()</div></h3><p>Disposes of the object. If the object hasn&#39;t already been disposed of, calls
+<a href="goog.net.XhrIo.html#disposeInternal"><code>#disposeInternal</code></a>. Classes that extend <code>goog.Disposable</code> should
+override <a href="goog.net.XhrIo.html#disposeInternal"><code>#disposeInternal</code></a> in order to delete references to COM
+objects, DOM nodes, and other disposable objects. Reentrant.</p>
+<dl><dt class="spec">Defined by</dt><dd><a href="goog.Disposable.html#dispose">goog.Disposable</a></dd><dt class="spec">Specified by</dt><dd><a href="goog.disposable.IDisposable.html#dispose">goog.disposable.IDisposable</a></dd><dt class="spec">Returns</dt><dd><dl><dt><dd><p>Nothing.</p>
+</dl></dd></dl></section><section class="property" id="disposeInternal"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l757" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div class="tags"><span class="protected"></span></div><div>disposeInternal()</div></h3><p>Nullifies all callbacks to reduce risks of leaks.</p>
+<dl><dt class="spec">Overrides</dt><dd><a href="goog.events.EventTarget.html#disposeInternal">goog.events.EventTarget</a></dd></dl></section><section class="property" id="fireListeners"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/events/eventtarget.js.src.html#l261" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>fireListeners(<wbr>type,<wbr> capture,<wbr> eventObject)</div></h3><p>Fires all registered listeners in this listenable for the given
+type and capture mode, passing them the given eventObject. This
+does not perform actual capture/bubble. Only implementors of the
+interface should be using this.</p>
+<dl><dt class="spec">Defined by</dt><dd><a href="goog.events.EventTarget.html#fireListeners">goog.events.EventTarget</a></dd><dt class="spec">Specified by</dt><dd><a href="goog.events.Listenable.html#fireListeners">goog.events.Listenable</a></dd><dt class="spec">Parameters</dt><dd><dl><dt class="named">type<code>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>|<a href="goog.events.EventId.html">goog.events.EventId</a>&lt;EVENTOBJ&gt;)</code><dd><p>The type of the
+listeners to fire.</p>
+<dt class="named">capture<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code><dd><p>The capture mode of the listeners to fire.</p>
+<dt class="named">eventObject<code>EVENTOBJ</code><dd><p>The event object to fire.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code><dd><p>Whether all listeners succeeded without
+attempting to prevent default behavior. If any listener returns
+false or called goog.events.Event#preventDefault, this returns
+false.</p>
+</dl></dd></dl></section><section class="property" id="getAllResponseHeaders"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l1253" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getAllResponseHeaders()</div></h3><p>Gets the text of all the headers in the response.
+Will only return correct result when called from the context of a callback
+and the request has completed.</p>
+<dl><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The value of the response headers or empty string.</p>
+</dl></dd></dl></section><section class="property" id="getDisposed"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/disposable/disposable.js.src.html#l163" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div class="tags"><span class="deprecated"></span></div><div>getDisposed()</div></h3><dl><dt class="spec">Deprecated<dd><p>Use <a href="goog.net.XhrIo.html#isDisposed"><code>#isDisposed</code></a> instead.</p>
+<dt class="spec">Defined by</dt><dd><a href="goog.Disposable.html#getDisposed">goog.Disposable</a></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code><dd><p>Whether the object has been disposed of.</p>
+</dl></dd></dl></section><section class="property" id="getLastError"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l1302" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getLastError()</div></h3><p>Get the last error message</p>
+<dl><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>Last error message.</p>
+</dl></dd></dl></section><section class="property" id="getLastErrorCode"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l1293" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getLastErrorCode()</div></h3><p>Get the last error message</p>
+<dl><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code><dd><p>Last error code.</p>
+</dl></dd></dl></section><section class="property" id="getLastUri"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l1079" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getLastUri()</div></h3><p>Get the last Uri that was requested</p>
+<dl><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>Last Uri.</p>
+</dl></dd></dl></section><section class="property" id="getListener"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/events/eventtarget.js.src.html#l299" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getListener(<wbr>type,<wbr> listener,<wbr> capture,<wbr> opt_listenerScope)</div></h3><p>Gets the goog.events.ListenableKey for the event or null if no such
+listener is in use.</p>
+<dl><dt class="spec">Defined by</dt><dd><a href="goog.events.EventTarget.html#getListener">goog.events.EventTarget</a></dd><dt class="spec">Specified by</dt><dd><a href="goog.events.Listenable.html#getListener">goog.events.Listenable</a></dd><dt class="spec">Parameters</dt><dd><dl><dt class="named">type<code>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>|<a href="goog.events.EventId.html">goog.events.EventId</a>&lt;EVENTOBJ&gt;)</code><dd><p>The name of the event
+without the &#39;on&#39; prefix.</p>
+<dt class="named">listener<code>function(this: SCOPE, EVENTOBJ): (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>|<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined">undefined</a>)</code><dd><p>The
+listener function to get.</p>
+<dt class="named">capture<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code><dd><p>Whether the listener is a capturing listener.</p>
+<dt class="named">opt_listenerScope<code>?SCOPE=</code><dd><p>Object in whose scope to call the
+listener.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="goog.events.ListenableKey.html">goog.events.ListenableKey</a></code><dd><p>the found listener or null if not found.</p>
+</dl></dd></dl></section><section class="property" id="getListeners"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/events/eventtarget.js.src.html#l293" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getListeners(<wbr>type,<wbr> capture)</div></h3><p>Gets all listeners in this listenable for the given type and
+capture mode.</p>
+<dl><dt class="spec">Defined by</dt><dd><a href="goog.events.EventTarget.html#getListeners">goog.events.EventTarget</a></dd><dt class="spec">Specified by</dt><dd><a href="goog.events.Listenable.html#getListeners">goog.events.Listenable</a></dd><dt class="spec">Parameters</dt><dd><dl><dt class="named">type<code>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>|<a href="goog.events.EventId.html">goog.events.EventId</a>)</code><dd><p>The type of the listeners to fire.</p>
+<dt class="named">capture<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code><dd><p>The capture mode of the listeners to fire.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&lt;<a href="goog.events.ListenableKey.html">goog.events.ListenableKey</a>&gt;</code><dd><p>An array of registered
+listeners.</p>
+</dl></dd></dl></section><section class="property" id="getParentEventTarget"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/events/eventtarget.js.src.html#l116" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getParentEventTarget()</div></h3><p>Returns the parent of this event target to use for bubbling.</p>
+<dl><dt class="spec">Defined by</dt><dd><a href="goog.events.EventTarget.html#getParentEventTarget">goog.events.EventTarget</a></dd><dt class="spec">Specified by</dt><dd><a href="goog.events.Listenable.html#getParentEventTarget">goog.events.Listenable</a></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="goog.events.EventTarget.html">goog.events.EventTarget</a></code><dd><p>The parent EventTarget or null if
+there is no parent.</p>
+</dl></dd></dl></section><section class="property" id="getProgressEventsEnabled"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l490" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getProgressEventsEnabled()</div></h3><p>Gets whether progress events are enabled.</p>
+<dl><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code><dd><p>Whether progress events are enabled for this request.</p>
+</dl></dd></dl></section><section class="property" id="getReadyState"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l1022" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getReadyState()</div></h3><p>Get the readystate from the Xhr object
+Will only return correct result when called from the context of a callback</p>
+<dl><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code><dd><p>goog.net.XmlHttp.ReadyState.*.</p>
+</dl></dd></dl></section><section class="property" id="getResponse"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l1199" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getResponse()</div></h3><p>Get the response as the type specificed by <a href="goog.net.XhrIo.html#setResponseType"><code>#setResponseType</code></a>. At time
+of writing, this is only directly supported in very recent versions of WebKit
+(10.0.612.1 dev and later). If the field is not supported directly, we will
+try to emulate it.</p>
+<p>Emulating the response means following the rules laid out at
+http://www.w3.org/TR/XMLHttpRequest/#the-response-attribute</p>
+<p>On browsers with no support for this (Chrome &lt; 10, Firefox &lt; 4, etc), only
+response types of DEFAULT or TEXT may be used, and the response returned will
+be the text response.</p>
+<p>On browsers with Mozilla&#39;s draft support for array buffers (Firefox 4, 5),
+only response types of DEFAULT, TEXT, and ARRAY_BUFFER may be used, and the
+response returned will be either the text response or the Mozilla
+implementation of the array buffer response.</p>
+<p>On browsers will full support, any valid response type supported by the
+browser may be used, and the response provided by the browser will be
+returned.</p>
+<dl><dt class="spec">Returns</dt><dd><dl><dt><dd><p>The response.</p>
+</dl></dd></dl></section><section class="property" id="getResponseBody"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l1121" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getResponseBody()</div></h3><p>Get the response body from the Xhr object. This property is only available
+in IE since version 7 according to MSDN:
+http://msdn.microsoft.com/en-us/library/ie/ms534368(v&#61;vs.85).aspx
+Will only return correct result when called from the context of a callback.</p>
+<p>One option is to construct a VBArray from the returned object and convert
+it to a JavaScript array using the toArray method:
+<code>(new window<a href="xhrIo.getResponseBody%28%29">&#39;VBArray&#39;</a>).toArray()</code>
+This will result in an array of numbers in the range of [0..255]</p>
+<p>Another option is to use the VBScript CStr method to convert it into a
+string as outlined in http://stackoverflow.com/questions/1919972</p>
+<dl><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code><dd><p>Binary result from the server or null if not available.</p>
+</dl></dd></dl></section><section class="property" id="getResponseHeader"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l1241" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getResponseHeader(<wbr>key)</div></h3><p>Get the value of the response-header with the given name from the Xhr object
+Will only return correct result when called from the context of a callback
+and the request has completed</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">key<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The name of the response-header to retrieve.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>|<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined">undefined</a>)</code><dd><p>The value of the response-header named key.</p>
+</dl></dd></dl></section><section class="property" id="getResponseHeaders"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l1271" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getResponseHeaders()</div></h3><p>Returns all response headers as a key-value map.
+Multiple values for the same header key can be combined into one,
+separated by a comma and a space.
+Note that the native getResponseHeader method for retrieving a single header
+does a case insensitive match on the header name. This method does not
+include any case normalization logic, it will just return a key-value
+representation of the headers.
+See: http://www.w3.org/TR/XMLHttpRequest/#the-getresponseheader()-method</p>
+<dl><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;</code><dd><p>An object with the header keys as keys
+and header values as values.</p>
+</dl></dd></dl></section><section class="property" id="getResponseJson"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l1161" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getResponseJson(<wbr>opt_xssiPrefix)</div></h3><p>Get the response and evaluates it as JSON from the Xhr object
+Will only return correct result when called from the context of a callback</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">opt_xssiPrefix<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>=</code><dd><p>Optional XSSI prefix string to use for
+stripping of the response before parsing. This needs to be set only if
+your backend server prepends the same prefix string to the JSON response.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code>?(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code><dd><p>JavaScript object.</p>
+</dl></dd></dl></section><section class="property" id="getResponseText"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l1089" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getResponseText()</div></h3><p>Get the response text from the Xhr object
+Will only return correct result when called from the context of a callback.</p>
+<dl><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>Result from the server, or &#39;&#39; if no result available.</p>
+</dl></dd></dl></section><section class="property" id="getResponseType"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l446" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getResponseType()</div></h3><p>Gets the desired type for the response.</p>
+<dl><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The desired type for the response.</p>
+</dl></dd></dl></section><section class="property" id="getResponseXml"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l1142" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getResponseXml()</div></h3><p>Get the response XML from the Xhr object
+Will only return correct result when called from the context of a callback.</p>
+<dl><dt class="spec">Returns</dt><dd><dl><dt><code>Document</code><dd><p>The DOM Document representing the XML file, or null
+if no result available.</p>
+</dl></dd></dl></section><section class="property" id="getStatus"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l1035" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getStatus()</div></h3><p>Get the status from the Xhr object
+Will only return correct result when called from the context of a callback</p>
+<dl><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code><dd><p>Http status.</p>
+</dl></dd></dl></section><section class="property" id="getStatusText"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l1057" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getStatusText()</div></h3><p>Get the status text from the Xhr object
+Will only return correct result when called from the context of a callback</p>
+<dl><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>Status text.</p>
+</dl></dd></dl></section><section class="property" id="getTimeoutInterval"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l413" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getTimeoutInterval()</div></h3><p>Returns the number of milliseconds after which an incomplete request will be
+aborted, or 0 if no timeout is set.</p>
+<dl><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code><dd><p>Timeout interval in milliseconds.</p>
+</dl></dd></dl></section><section class="property" id="getWithCredentials"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l469" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>getWithCredentials()</div></h3><p>Gets whether a &#34;credentialed&#34; request is to be sent.</p>
+<dl><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code><dd><p>The desired type for the response.</p>
+</dl></dd></dl></section><section class="property" id="hasListener"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/events/eventtarget.js.src.html#l307" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>hasListener(<wbr>opt_type,<wbr> opt_capture)</div></h3><p>Whether there is any active listeners matching the specified
+signature. If either the type or capture parameters are
+unspecified, the function will match on the remaining criteria.</p>
+<dl><dt class="spec">Defined by</dt><dd><a href="goog.events.EventTarget.html#hasListener">goog.events.EventTarget</a></dd><dt class="spec">Specified by</dt><dd><a href="goog.events.Listenable.html#hasListener">goog.events.Listenable</a></dd><dt class="spec">Parameters</dt><dd><dl><dt class="named">opt_type<code>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>|<a href="goog.events.EventId.html">goog.events.EventId</a>&lt;EVENTOBJ&gt;)=</code><dd><p>Event type.</p>
+<dt class="named">opt_capture<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>=</code><dd><p>Whether to check for capture or bubble
+listeners.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code><dd><p>Whether there is any active listeners matching
+the requested type and/or capture phase.</p>
+</dl></dd></dl></section><section class="property" id="isActive"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l982" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>isActive()</div></h3><dl><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code><dd><p>Whether there is an active request.</p>
+</dl></dd></dl></section><section class="property" id="isComplete"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l990" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>isComplete()</div></h3><dl><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code><dd><p>Whether the request has completed.</p>
+</dl></dd></dl></section><section class="property" id="isDisposed"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/disposable/disposable.js.src.html#l154" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>isDisposed()</div></h3><dl><dt class="spec">Defined by</dt><dd><a href="goog.Disposable.html#isDisposed">goog.Disposable</a></dd><dt class="spec">Specified by</dt><dd><a href="goog.disposable.IDisposable.html#isDisposed">goog.disposable.IDisposable</a></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code><dd><p>Whether the object has been disposed of.</p>
+</dl></dd></dl></section><section class="property" id="isSuccess"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l998" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>isSuccess()</div></h3><dl><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code><dd><p>Whether the request completed with a success.</p>
+</dl></dd></dl></section><section class="property" id="listen"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/events/eventtarget.js.src.html#l216" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>listen(<wbr>type,<wbr> listener,<wbr> opt_useCapture,<wbr> opt_listenerScope)</div></h3><p>Adds an event listener. A listener can only be added once to an
+object and if it is added again the key for the listener is
+returned. Note that if the existing listener is a one-off listener
+(registered via listenOnce), it will no longer be a one-off
+listener after a call to listen().</p>
+<dl><dt class="spec">Defined by</dt><dd><a href="goog.events.EventTarget.html#listen">goog.events.EventTarget</a></dd><dt class="spec">Specified by</dt><dd><a href="goog.events.Listenable.html#listen">goog.events.Listenable</a></dd><dt class="spec">Parameters</dt><dd><dl><dt class="named">type<code>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>|<a href="goog.events.EventId.html">goog.events.EventId</a>&lt;EVENTOBJ&gt;)</code><dd><p>The event type id.</p>
+<dt class="named">listener<code>function(this: SCOPE, EVENTOBJ): (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>|<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined">undefined</a>)</code><dd><p>Callback
+method.</p>
+<dt class="named">opt_useCapture<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>=</code><dd><p>Whether to fire in capture phase
+(defaults to false).</p>
+<dt class="named">opt_listenerScope<code>?SCOPE=</code><dd><p>Object in whose scope to call the
+listener.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="goog.events.ListenableKey.html">goog.events.ListenableKey</a></code><dd><p>Unique key for the listener.</p>
+</dl></dd></dl></section><section class="property" id="listenOnce"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/events/eventtarget.js.src.html#l226" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>listenOnce(<wbr>type,<wbr> listener,<wbr> opt_useCapture,<wbr> opt_listenerScope)</div></h3><p>Adds an event listener that is removed automatically after the
+listener fired once.</p>
+<p>If an existing listener already exists, listenOnce will do
+nothing. In particular, if the listener was previously registered
+via listen(), listenOnce() will not turn the listener into a
+one-off listener. Similarly, if there is already an existing
+one-off listener, listenOnce does not modify the listeners (it is
+still a once listener).</p>
+<dl><dt class="spec">Defined by</dt><dd><a href="goog.events.EventTarget.html#listenOnce">goog.events.EventTarget</a></dd><dt class="spec">Specified by</dt><dd><a href="goog.events.Listenable.html#listenOnce">goog.events.Listenable</a></dd><dt class="spec">Parameters</dt><dd><dl><dt class="named">type<code>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>|<a href="goog.events.EventId.html">goog.events.EventId</a>&lt;EVENTOBJ&gt;)</code><dd><p>The event type id.</p>
+<dt class="named">listener<code>function(this: SCOPE, EVENTOBJ): (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>|<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined">undefined</a>)</code><dd><p>Callback
+method.</p>
+<dt class="named">opt_useCapture<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>=</code><dd><p>Whether to fire in capture phase
+(defaults to false).</p>
+<dt class="named">opt_listenerScope<code>?SCOPE=</code><dd><p>Object in whose scope to call the
+listener.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="goog.events.ListenableKey.html">goog.events.ListenableKey</a></code><dd><p>Unique key for the listener.</p>
+</dl></dd></dl></section><section class="property" id="registerDisposable"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/disposable/disposable.js.src.html#l203" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>registerDisposable(<wbr>disposable)</div></h3><p>Associates a disposable object with this object so that they will be disposed
+together.</p>
+<dl><dt class="spec">Defined by</dt><dd><a href="goog.Disposable.html#registerDisposable">goog.Disposable</a></dd><dt class="spec">Parameters</dt><dd><dl><dt class="named">disposable<code><a href="goog.disposable.IDisposable.html">goog.disposable.IDisposable</a></code><dd><p>that will be disposed when
+this object is disposed.</p>
+</dl></dd></dl></section><section class="property" id="removeAllListeners"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/events/eventtarget.js.src.html#l249" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>removeAllListeners(<wbr>opt_type)</div></h3><p>Removes all listeners from this listenable. If type is specified,
+it will only remove listeners of the particular type. otherwise all
+registered listeners will be removed.</p>
+<dl><dt class="spec">Defined by</dt><dd><a href="goog.events.EventTarget.html#removeAllListeners">goog.events.EventTarget</a></dd><dt class="spec">Specified by</dt><dd><a href="goog.events.Listenable.html#removeAllListeners">goog.events.Listenable</a></dd><dt class="spec">Parameters</dt><dd><dl><dt class="named">opt_type<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>=</code><dd><p>Type of event to remove, default is to
+remove all types.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code><dd><p>Number of listeners removed.</p>
+</dl></dd></dl></section><section class="property" id="removeEventListener"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/events/eventtarget.js.src.html#l174" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div class="tags"><span class="deprecated"></span></div><div>removeEventListener(<wbr>type,<wbr> handler,<wbr> opt_capture,<wbr> opt_handlerScope)</div></h3><p>Removes an event listener from the event target. The handler must be the
+same object as the one added. If the handler has not been added then
+nothing is done.</p>
+<dl><dt class="spec">Deprecated<dd><p>Use <code>#unlisten</code> instead, when possible. Otherwise, use
+<code>goog.events.unlisten</code> if you are passing Object
+(instead of Function) as handler.</p>
+<dt class="spec">Defined by</dt><dd><a href="goog.events.EventTarget.html#removeEventListener">goog.events.EventTarget</a></dd><dt class="spec">Parameters</dt><dd><dl><dt class="named">type<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The type of the event to listen for.</p>
+<dt class="named">handler<code>?(function(?): ?|{handleEvent: function(?): ?})</code><dd><p>The function
+to handle the event. The handler can also be an object that implements
+the handleEvent method which takes the event object as argument.</p>
+<dt class="named">opt_capture<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>=</code><dd><p>In DOM-compliant browsers, this determines
+whether the listener is fired during the capture or bubble phase
+of the event.</p>
+<dt class="named">opt_handlerScope<code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>=</code><dd><p>Object in whose scope to call
+the listener.</p>
+</dl></dd></dl></section><section class="property" id="send"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l504" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>send(<wbr>url,<wbr> opt_method,<wbr> opt_content,<wbr> opt_headers)</div></h3><p>Instance send that actually uses XMLHttpRequest to make a server call.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">url<code>?(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>|<a href="goog.html">goog.Uri</a>)</code><dd><p>Uri to make request to.</p>
+<dt class="named">opt_method<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>=</code><dd><p>Send method, default: GET.</p>
+<dt class="named">opt_content<code>?(ArrayBuffer|ArrayBufferView|Blob|Document|FormData|<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)=</code><dd><p>Body data.</p>
+<dt class="named">opt_headers<code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>=</code><dd><p>Map of headers to add to the
+request.</p>
+</dl></dd></dl></section><section class="property" id="setParentEventTarget"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/events/eventtarget.js.src.html#l126" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>setParentEventTarget(<wbr>parent)</div></h3><p>Sets the parent of this event target to use for capture/bubble
+mechanism.</p>
+<dl><dt class="spec">Defined by</dt><dd><a href="goog.events.EventTarget.html#setParentEventTarget">goog.events.EventTarget</a></dd><dt class="spec">Parameters</dt><dd><dl><dt class="named">parent<code><a href="goog.events.EventTarget.html">goog.events.EventTarget</a></code><dd><p>Parent listenable (null if none).</p>
+</dl></dd></dl></section><section class="property" id="setProgressEventsEnabled"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l481" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>setProgressEventsEnabled(<wbr>enabled)</div></h3><p>Sets whether progress events are enabled for this request. Note
+that progress events require pre-flight OPTIONS request handling
+for CORS requests, and may cause trouble with older browsers. See
+progressEventsEnabled_ for details.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">enabled<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code><dd><p>Whether progress events should be enabled.</p>
+</dl></dd></dl></section><section class="property" id="setResponseType"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l437" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>setResponseType(<wbr>type)</div></h3><p>Sets the desired type for the response. At time of writing, this is only
+supported in very recent versions of WebKit (10.0.612.1 dev and later).</p>
+<p>If this is used, the response may only be accessed via <a href="goog.net.XhrIo.html#getResponse"><code>#getResponse</code></a>.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">type<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code><dd><p>The desired type for the response.</p>
+</dl></dd></dl></section><section class="property" id="setTargetForTesting"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/events/eventtarget.js.src.html#l320" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>setTargetForTesting(<wbr>target)</div></h3><p>Sets the target to be used for <code>event.target</code> when firing
+event. Mainly used for testing. For example, see
+<code>goog.testing.events.mixinListenable</code>.</p>
+<dl><dt class="spec">Defined by</dt><dd><a href="goog.events.EventTarget.html#setTargetForTesting">goog.events.EventTarget</a></dd><dt class="spec">Parameters</dt><dd><dl><dt class="named">target<code>!<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code><dd><p>The target.</p>
+</dl></dd></dl></section><section class="property" id="setTimeoutInterval"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l424" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>setTimeoutInterval(<wbr>ms)</div></h3><p>Sets the number of milliseconds after which an incomplete request will be
+aborted and a <a href="goog.net.EventType.html#TIMEOUT"><code>goog.net.EventType.TIMEOUT</code></a> event raised; 0 means no
+timeout is set.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">ms<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code><dd><p>Timeout interval in milliseconds; 0 means none.</p>
+</dl></dd></dl></section><section class="property" id="setWithCredentials"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l460" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>setWithCredentials(<wbr>withCredentials)</div></h3><p>Sets whether a &#34;credentialed&#34; request that is aware of cookie and
+authentication information should be made. This option is only supported by
+browsers that support HTTP Access Control. As of this writing, this option
+is not supported in IE.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">withCredentials<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code><dd><p>Whether this should be a &#34;credentialed&#34;
+request.</p>
+</dl></dd></dl></section><section class="property" id="unlisten"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/events/eventtarget.js.src.html#l235" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>unlisten(<wbr>type,<wbr> listener,<wbr> opt_useCapture,<wbr> opt_listenerScope)</div></h3><p>Removes an event listener which was added with listen() or listenOnce().</p>
+<dl><dt class="spec">Defined by</dt><dd><a href="goog.events.EventTarget.html#unlisten">goog.events.EventTarget</a></dd><dt class="spec">Specified by</dt><dd><a href="goog.events.Listenable.html#unlisten">goog.events.Listenable</a></dd><dt class="spec">Parameters</dt><dd><dl><dt class="named">type<code>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>|<a href="goog.events.EventId.html">goog.events.EventId</a>&lt;EVENTOBJ&gt;)</code><dd><p>The event type id.</p>
+<dt class="named">listener<code>function(this: SCOPE, EVENTOBJ): (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>|<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined">undefined</a>)</code><dd><p>Callback
+method.</p>
+<dt class="named">opt_useCapture<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>=</code><dd><p>Whether to fire in capture phase
+(defaults to false).</p>
+<dt class="named">opt_listenerScope<code>?SCOPE=</code><dd><p>Object in whose scope to call
+the listener.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code><dd><p>Whether any listener was removed.</p>
+</dl></dd></dl></section><section class="property" id="unlistenByKey"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/events/eventtarget.js.src.html#l243" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>unlistenByKey(<wbr>key)</div></h3><p>Removes an event listener which was added with listen() by the key
+returned by listen().</p>
+<dl><dt class="spec">Defined by</dt><dd><a href="goog.events.EventTarget.html#unlistenByKey">goog.events.EventTarget</a></dd><dt class="spec">Specified by</dt><dd><a href="goog.events.Listenable.html#unlistenByKey">goog.events.Listenable</a></dd><dt class="spec">Parameters</dt><dd><dl><dt class="named">key<code>!<a href="goog.events.ListenableKey.html">goog.events.ListenableKey</a></code><dd><p>The key returned by
+listen() or listenOnce().</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code><dd><p>Whether any listener was removed.</p>
+</dl></dd></dl></section></section><section class="instance-properties"><h2>Instance Properties</h2><section class="property" id="creationStack"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/disposable/disposable.js.src.html#l147" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div class="tags"><span class="const"></span></div><div>creationStack</div></h3><p>If monitoring the goog.Disposable instances is enabled, stores the creation
+stack trace of the Disposable instance.</p>
+<dl><dt class="spec">Type<dd><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></dd><dt class="spec">Defined by</dt><dd><a href="goog.Disposable.html#creationStack">goog.Disposable</a></dd></dl></section><section class="property" id="headers"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l90" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>headers</div></h3><p>Map of default headers to add to every request, use:
+XhrIo.headers.set(name, value)</p>
+<dl><dt class="spec">Type<dd>!<a href="goog.structs.Map.html">goog.structs.Map</a></dd></dl></section></section><section class="static-functions"><h2>Static Functions</h2><section class="property" id="XhrIo.cleanup"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l371" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>XhrIo.cleanup()</div></h3><p>Disposes all non-disposed instances of goog.net.XhrIo created by
+<a href="goog.net.XhrIo.html#XhrIo.send"><code>goog.net.XhrIo.send</code></a>.
+<a href="goog.net.XhrIo.html#XhrIo.send"><code>goog.net.XhrIo.send</code></a> cleans up the goog.net.XhrIo instance
+it creates when the request completes or fails.  However, if
+the request never completes, then the goog.net.XhrIo is not disposed.
+This can occur if the window is unloaded before the request completes.
+We could have <a href="goog.net.XhrIo.html#XhrIo.send"><code>goog.net.XhrIo.send</code></a> return the goog.net.XhrIo
+it creates and make the client of <a href="goog.net.XhrIo.html#XhrIo.send"><code>goog.net.XhrIo.send</code></a> be
+responsible for disposing it in this case.  However, this makes things
+significantly more complicated for the client, and the whole point
+of <a href="goog.net.XhrIo.html#XhrIo.send"><code>goog.net.XhrIo.send</code></a> is that it&#39;s simple and easy to use.
+Clients of <a href="goog.net.XhrIo.html#XhrIo.send"><code>goog.net.XhrIo.send</code></a> should call
+<a href="goog.net.XhrIo.html#XhrIo.cleanup"><code>goog.net.XhrIo.cleanup</code></a> when doing final
+cleanup on window unload.</p>
+</section><section class="property" id="XhrIo.protectEntryPoints"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l389" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>XhrIo.protectEntryPoints(<wbr>errorHandler)</div></h3><p>Installs exception protection for all entry point introduced by
+goog.net.XhrIo instances which are not protected by
+<code>goog.debug.ErrorHandler#protectWindowSetTimeout</code>,
+<code>goog.debug.ErrorHandler#protectWindowSetInterval</code>, or
+<a href="goog.events.html#protectBrowserEventEntryPoint"><code>goog.events.protectBrowserEventEntryPoint</code></a>.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">errorHandler<code><a href="goog.debug.html">goog.debug.ErrorHandler</a></code><dd><p>Error handler with which to
+protect the entry point(s).</p>
+</dl></dd></dl></section><section class="property" id="XhrIo.send"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l335" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>XhrIo.send(<wbr>url,<wbr> opt_callback,<wbr> opt_method,<wbr> opt_content,<wbr> opt_headers,<wbr> opt_timeoutInterval,<wbr> opt_withCredentials)</div></h3><p>Static send that creates a short lived instance of XhrIo to send the
+request.</p>
+<dl><dt class="spec">Parameters</dt><dd><dl><dt class="named">url<code>?(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>|<a href="goog.html">goog.Uri</a>)</code><dd><p>Uri to make request to.</p>
+<dt class="named">opt_callback<code>?function(this: <a href="goog.net.XhrIo.html">goog.net.XhrIo</a>, ?): ?=</code><dd><p>Callback function
+for when request is complete.</p>
+<dt class="named">opt_method<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>=</code><dd><p>Send method, default: GET.</p>
+<dt class="named">opt_content<code>?(ArrayBuffer|ArrayBufferView|Blob|Document|FormData|<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)=</code><dd><p>Body data.</p>
+<dt class="named">opt_headers<code>?<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>=</code><dd><p>Map of headers to add to the
+request.</p>
+<dt class="named">opt_timeoutInterval<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>=</code><dd><p>Number of milliseconds after which an
+incomplete request will be aborted; 0 means no timeout is set.</p>
+<dt class="named">opt_withCredentials<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>=</code><dd><p>Whether to send credentials with the
+request. Default to false. See <a href="goog.net.XhrIo.html#setWithCredentials"><code>goog.net.XhrIo#setWithCredentials</code></a>.</p>
+</dl></dd><dt class="spec">Returns</dt><dd><dl><dt><code><a href="goog.net.XhrIo.html">goog.net.XhrIo</a></code><dd><p>The sent XhrIo.</p>
+</dl></dd><dt class="spec">See Also</dt><dd><a href="goog.net.XhrIo.html#XhrIo.cleanup">goog.net.XhrIo.cleanup</a></dd></dl></section></section><section class="static-properties"><h2>Static Properties</h2><section class="property" id="XhrIo.CONTENT_TYPE_HEADER"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l261" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>XhrIo.CONTENT_TYPE_HEADER</div></h3><p>The Content-Type HTTP header name</p>
+<dl><dt class="spec">Type<dd><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></dd></dl></section><section class="property" id="XhrIo.FORM_CONTENT_TYPE"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l282" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>XhrIo.FORM_CONTENT_TYPE</div></h3><p>The Content-Type HTTP header value for a url-encoded form</p>
+<dl><dt class="spec">Type<dd><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></dd></dl></section><section class="property" id="XhrIo.HTTP_SCHEME_PATTERN"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l268" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>XhrIo.HTTP_SCHEME_PATTERN</div></h3><p>The pattern matching the &#39;http&#39; and &#39;https&#39; URI schemes</p>
+<dl><dt class="spec">Type<dd>!<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a></dd></dl></section><section class="property" id="XhrIo.METHODS_WITH_FORM_DATA"><div class="code-link"><a href="source/node_modules/imazzine-developer-kit/node_modules/google-closure-library/closure/goog/net/xhrio.js.src.html#l275" title="View source"><i class="material-icons">code</i></a></div><h3 class="name"><div>XhrIo.METHODS_WITH_FORM_DATA</div></h3><p>The methods that typically come along with form data.  We set different
+headers depending on whether the HTTP action is one of these.</p>
+<dl><dt class="spec">Type<dd><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></dd></dl></section></section><section class="types"><h2>Types</h2><section class="property"><dl><dt><a href="goog.net.XhrIo.ResponseType.html">XhrIo.ResponseType</a><dd><p>Response types that may be requested for XMLHttpRequests.</p>
+</dl></section></section></article></main><footer><div><a href="https://github.com/jleyba/js-dossier">Generated by dossier</a></div></footer></div><nav class="dossier-nav"><section><a class="title" href="index.html" tabindex="2">Overview</a></section><section class="types"><div class="toggle"><div class="title"><span class="item" tabindex="2">Types</span><i class="material-icons">expand_more</i></div></div></section></nav><script src="types.js"></script><script src="dossier.js"></script>
