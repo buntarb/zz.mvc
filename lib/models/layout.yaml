@@ -1,14 +1,8 @@
-# This is created model class name (dataset). For datarow class
-# you should add Datarow suffix in the end.
 NAMESPACE: 'zz.mvc.models.Layout'
-
-# This is an array of required models (datasets) you need
-# to use as a field type.
 REQUIRE:
 
   - zz.mvc.models.View
 
-# This is the list of models fields.
 FIELDS:
 
   width:
