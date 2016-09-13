@@ -58,6 +58,9 @@ SERVER:
   # Production-like server sub-domain
   SERVER_APP: 'app'
 
+  # Production-like server sub-domain
+  SERVER_UT: 'ut'
+
 # Compile settings
 COMPILATION:
 
