@@ -61,6 +61,11 @@ SERVER:
   # Production-like server sub-domain
   SERVER_UT: 'ut'
 
+# TODO: Remove it from msg extractor.
+DEFAULT:
+
+  LOCALE: 'en'
+
 # Compile settings
 COMPILATION:
 
