@@ -111,6 +111,7 @@
 {/template}
 
 /**
+ * @param clientEvent
  * @param fields
  * @param uid
  * @param datarow
@@ -118,8 +119,23 @@
 {template .widgetDatarow}
     <div
         data-row="{$uid}"
-        class="{css mdl-cell} {css mdl-cell--4-col} {css mdl-card} {css mdl-shadow--2dp} {if $datarow.type != 'scatter'}{css highlighted-element}{/if}">
-        <h4>{$datarow.title}</h4>
+        class="{css mdl-cell} {css mdl-cell--4-col} {css mdl-card} {css mdl-shadow--2dp}">
+        <h4
+            data-field="{$fields.title}"
+            data-event="{$clientEvent.CHANGE}">
+            {$datarow.title}
+        </h4>
+        {if $datarow.type=='testHC' or
+            $datarow.type=='testD3' or
+            $datarow.type=='testSVG' or
+            $datarow.type=='testCanvas' }
+            <h3
+                contenteditable="true"
+                data-field="{$fields.numberField}"
+                data-event="{$clientEvent.CHANGE}">
+                {$datarow.numberField}
+            </h3>
+        {/if}
         <div
             data-type="{$fields.data}">
         </div>
