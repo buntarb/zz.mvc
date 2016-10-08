@@ -34,3 +34,15 @@ FIELDS:
     index: 4
     type: zz.mvc.models.Layout
     required: false
+
+  flag:
+
+    index: 5
+    type: zz.models.enums.FieldType.BOOLEAN
+    required: false
+
+  flag2:
+
+    index: 6
+    type: zz.models.enums.FieldType.BOOLEAN
+    required: false

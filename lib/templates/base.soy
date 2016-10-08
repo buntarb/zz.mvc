@@ -19,6 +19,81 @@
 {namespace zz.mvc.templates}
 
 /**
+ * @param key
+ * @param value
+ */
+{template .application}
+    <div
+        class="{css root}">
+        <div
+            class="{css title}"
+            data-model="{$key.title}">
+            {$value.title}
+        </div>
+        <div
+            class="{css version}"
+            data-model="{$key.version}"
+            data-class="{$key.flag}:{css flag}">
+            {$value.version}
+        </div>
+        <div
+            class="{css authors}"
+            data-model="{$key.authors}"
+            data-class="{$key.flag2}:{css flag2}">
+            {$value.authors}
+        </div>
+        <div
+            data-model="{$key.flag}"
+            data-class="{$key.flag}:{css flag},{$key.flag2}:{css flag2}">
+            {$value.flag}
+        </div>
+        <div
+            data-model="{$key.layout}"
+            data-view="layout"
+            data-controller="layout">
+        </div>
+    </div>
+{/template}
+
+/**
+ * @param key
+ * @param value
+ */
+{template .layout}
+    <div
+        class="{css root}">
+        <div
+            class="{css width}"
+            data-model="{$key.width}">
+            {$value.width}
+        </div>
+        <div
+            class="{css height}"
+            data-model="{$key.height}">
+            {$value.height}
+        </div>
+        <div
+            data-model="{$key.views}"
+            data-view="view"
+            data-controller="view">
+        </div>
+    </div>
+{/template}
+
+/**
+ * @param key
+ * @param value
+ */
+{template .view}
+    <div
+        class="{css root}">
+        <input
+            class="{css title}"
+            data-input="{$key.title}"
+            value="{$value.title}">
+{/template}
+
+/**
  * @param uid
  */
 {template .appDataset}
@@ -132,7 +207,21 @@
             <h3
                 contenteditable="true"
                 data-field="{$fields.numberField}"
-                data-event="{$clientEvent.CHANGE}">
+                data-event="{$clientEvent.CHANGE}"
+
+                data-model="{$fields.title}"
+                data-input="{$fields.title}"
+                data-class="key:css,key1:css1,"
+                data-action
+                data-focus>
+                {$datarow.numberField}
+            </h3>
+            <h3
+                data-model="{$fields.title}"
+                data-input="{$fields.title}"
+                data-class="key:css,key1:css1,"
+                data-action
+                data-focus>
                 {$datarow.numberField}
             </h3>
         {/if}
