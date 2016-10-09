@@ -1,8 +1,4 @@
 NAMESPACE: 'zz.mvc.models.View'
-REQUIRE:
-
-  - zz.mvc.models.Widget
-
 FIELDS:
 
   title:
@@ -14,5 +10,5 @@ FIELDS:
   widgets:
 
     index: 1
-    type: zz.mvc.models.Widget
+    type: zz.models.enums.FieldType.STRING
     required: false

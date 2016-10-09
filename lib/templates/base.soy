@@ -61,7 +61,8 @@
  */
 {template .layout}
     <div
-        class="{css root}">
+        class="{css root}"
+        data-hover>
         <div
             class="{css width}"
             data-model="{$key.width}">
@@ -86,147 +87,17 @@
  */
 {template .view}
     <div
-        class="{css root}">
+        class="{css root}"
+        data-hover>
         <input
             class="{css title}"
+            value="{$value.title}"
             data-input="{$key.title}"
-            value="{$value.title}">
-{/template}
+            data-focus>
 
-/**
- * @param uid
- */
-{template .appDataset}
-    <div
-        class="{css application}"
-        data-set="{$uid}">
-    </div>
-{/template}
-
-/**
- * @param fields
- * @param uid
- */
-{template .appDatarow}
-    <div
-        data-row="{$uid}">
-        <div
-            class="{css layout}"
-            data-type="{$fields.layout}">
-        </div>
-    </div>
-{/template}
-
-/**
- * @param uid
- */
-{template .layoutDataset}
-    <div
-        data-set="{$uid}">
-    </div>
-{/template}
-
-/**
- * @param fields
- * @param uid
- */
-{template .layoutDatarow}
-    <div
-        data-row="{$uid}">
-        <h4>
-            {msg desc="Application Title" meaning="Application Title"}
-                Application Title
-            {/msg}
-        </h4>
-        <div
-            class="{css view}"
-            data-type="{$fields.views}">
-        </div>
-    </div>
-{/template}
-
-/**
- * @param uid
- */
-{template .viewDataset}
-    <div
-        data-set="{$uid}">
-    </div>
-{/template}
-
-/**
- * @param fields
- * @param uid
- * @param datarow
- */
-{template .viewDatarow}
-    <div
-        data-row="{$uid}">
-        <h4>
-            {msg desc="Dashboard Title:" meaning="Dashboard Title:"}
-                Dashboard Title:
-            {/msg}
-            {' ' + $datarow.title}
-        </h4>
-        <div
-            class="{css widget}"
-            data-type="{$fields.widgets}">
-        </div>
-    </div>
-{/template}
-
-/**
- * @param uid
- */
-{template .widgetDataset}
-    <div
-        class="{css mdl-grid}"
-        data-set="{$uid}">
-    </div>
-{/template}
-
-/**
- * @param clientEvent
- * @param fields
- * @param uid
- * @param datarow
- */
-{template .widgetDatarow}
-    <div
-        data-row="{$uid}"
-        class="{css mdl-cell} {css mdl-cell--4-col} {css mdl-card} {css mdl-shadow--2dp}">
-        <h4
-            data-field="{$fields.title}"
-            data-event="{$clientEvent.CHANGE}">
-            {$datarow.title}
-        </h4>
-        {if $datarow.type=='testHC' or
-            $datarow.type=='testD3' or
-            $datarow.type=='testSVG' or
-            $datarow.type=='testCanvas' }
-            <h3
-                contenteditable="true"
-                data-field="{$fields.numberField}"
-                data-event="{$clientEvent.CHANGE}"
-
-                data-model="{$fields.title}"
-                data-input="{$fields.title}"
-                data-class="key:css,key1:css1,"
-                data-action
-                data-focus>
-                {$datarow.numberField}
-            </h3>
-            <h3
-                data-model="{$fields.title}"
-                data-input="{$fields.title}"
-                data-class="key:css,key1:css1,"
-                data-action
-                data-focus>
-                {$datarow.numberField}
-            </h3>
-        {/if}
-        <div
-            data-type="{$fields.data}">
-        </div>
-    </div>
+        <button
+            data-hover
+            data-action>
+            Button
+        </button>
 {/template}
