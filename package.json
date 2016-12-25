@@ -1,6 +1,6 @@
 {
 	"name": "zz.mvc",
-	"version": "20161222.0.1",
+	"version": "20161225.0.0",
 	"description": "Tests for imazzine-developer-lib MVC.",
 	"author": {
 		"name": "Artem Lytvynov",
@@ -20,10 +20,10 @@
 
 	    "imazzine-developer-kit": "",
 		"zz.environment": "",
+		"zz.app": "",
 		"zz.views": "",
 		"zz.controllers": "",
 		"zz.models": "",
-		"zz.app": "",
 		"zz.styles": "",
 		"zz.i18n": "",
 		"zz.ui": ""

@@ -19,89 +19,98 @@
 {namespace zz.mvc.templates}
 
 /**
- * @param key
- * @param value
+ * Application template.
  */
 {template .application}
     <div
         class="{css root}">
+        RootController template.
         <div
-            class="{css title}"
-            data-model="{$key.title}">
-            {$value.title}
+            id="{css layout-wrapper}">
         </div>
-        <div
-            class="{css version}"
-            data-model="{$key.version}"
-            data-class="{$key.flag}:{css flag}">
-            {$value.version}
-        </div>
-        <div
-            class="{css authors}"
-            data-model="{$key.authors}"
-            data-class="{$key.flag2}:{css flag2}">
-            {$value.authors}
-        </div>
-        <div
-            data-model="{$key.flag}"
-            data-class="{$key.flag}:{css flag},{$key.flag2}:{css flag2}">
-            {$value.flag}
-        </div>
-        <div
-            data-model="{$key.layout}"
-            data-view="layout"
-            data-controller="layout">
-        </div>
+//        <div
+//            class="{css title}"
+//            data-model="{$key.title}">
+//            {$value.title}
+//        </div>
+//        <div
+//            class="{css version}"
+//            data-model="{$key.version}"
+//            data-class="{$key.flag}:{css flag}">
+//            {$value.version}
+//        </div>
+//        <div
+//            class="{css authors}"
+//            data-model="{$key.authors}"
+//            data-class="{$key.flag2}:{css flag2}">
+//            {$value.authors}
+//        </div>
+//        <div
+//            data-model="{$key.flag}"
+//            data-class="{$key.flag}:{css flag},{$key.flag2}:{css flag2}">
+//            {$value.flag}
+//        </div>
+//        <div
+//            data-model="{$key.layout}"
+//            data-view="layout"
+//            data-controller="layout">
+//        </div>
     </div>
 {/template}
 
 /**
- * @param key
- * @param value
+ * Layout template.
  */
 {template .layout}
     <div
-        class="{css root}"
-        data-hover>
+        class="{css root}">
+        LayoutController template.
         <div
-            class="{css width}"
-            data-model="{$key.width}">
-            {$value.width}
+            id="{css view-wrapper}">
         </div>
-        <div
-            class="{css height}"
-            data-model="{$key.height}">
-            {$value.height}
-        </div>
-        <div
-            data-model="{$key.views}"
-            data-view="view"
-            data-controller="view">
-        </div>
+//        class="{css root}"
+//        data-hover>
+//        <div
+//            class="{css width}"
+//            data-model="{$key.width}">
+//            {$value.width}
+//        </div>
+//        <div
+//            class="{css height}"
+//            data-model="{$key.height}">
+//            {$value.height}
+//        </div>
+//        <div
+//            data-model="{$key.views}"
+//            data-view="view"
+//            data-controller="view">
+//        </div>
     </div>
 {/template}
 
 /**
- * @param key
- * @param value
+ * View template
  */
 {template .view}
     <div
-        class="{css root}"
-        data-hover
-        data-action>
-        <input
-            class="{css title}"
-            value="{$value.title}"
-            data-input="{$key.title}"
-            data-focus
-            data-blur
-            data-key>
-
-        <button
-            data-hover
-            data-action
-            data-key>
-            Button
-        </button>
+        class="{css root}">
+        ViewController template.
+//        class="{css root}"
+//        data-hover
+//        data-action>
+//        <input
+//            class="{css title}"
+//            value="{$value.title}"
+//            data-input="{$key.title}"
+//            data-focus
+//            data-blur
+//            data-key>
+//
+//        <button
+//            data-hover
+//            data-action
+//            data-key>
+//            Button
+//        </button>
+    </div>
 {/template}
